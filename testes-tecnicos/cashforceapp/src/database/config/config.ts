@@ -9,3 +9,5 @@ const config: Options = {
   port: Number(process.env.DB_PORT || '3306'),
   dialect: 'mysql',
 };
+
+module.exports = config;

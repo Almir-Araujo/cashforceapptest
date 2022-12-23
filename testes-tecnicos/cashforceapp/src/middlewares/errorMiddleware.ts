@@ -1,6 +1,6 @@
 import { ErrorRequestHandler } from "express";
 
-const errorMiddleware: ErrorRequestHandler = (err, req, res, next) => {
+const errorMiddleware: ErrorRequestHandler = (err, _req, res, next) => {
   const { name, message, details } = err;
   console.log(`name: ${name}`);
   
