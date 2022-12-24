@@ -13,6 +13,10 @@ dist
 dist-ssr
 coverage
 *.local
+bootstrap-5.2.3
+bootstrap-5.2.3-examples
+bootstrap-5.2.3-examples.zip
+bootstrap-5.2.3.zip
 
 /cypress/videos/
 /cypress/screenshots/
