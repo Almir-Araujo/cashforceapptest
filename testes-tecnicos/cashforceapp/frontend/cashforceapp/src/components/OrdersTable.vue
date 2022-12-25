@@ -19,8 +19,9 @@
           <td>{{ order.sacados.name }}</td>
           <td>{{ order.cedentes.name }}</td>
           <td>{{ moment(order.createdAt) }}</td>
-          <td>{{ `R$ ${order.value}` }}</td>
-          <td>{{ order.orderStatusBuyer }}</td>
+          <td>{{ Number(order.value)
+          .toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) }}</td>
+          <td>{{ checkStatus(Number(order.orderStatusBuyer)) }}</td>
         </tr>
       </tbody>
     </table>
@@ -41,14 +42,37 @@ import moment from 'moment';
     mounted() {
       api.get('/orders').then(response => {
         this.orders = response.data.orders;
-        console.log(response.data.orders)
-      })
+      });
     },
 
     methods: {
       moment(date) {
-        return moment(date).format('DD/MM/YYYY')
-      }
+        return moment(date).format('DD/MM/YYYY');
+      },
+
+      checkStatus(statusNumber) {
+        switch (statusNumber) {
+          case 0:
+            return'Pendente de confirmação';
+          case 1:
+            return 'Pedido confirmado';
+          case 2:
+            return 'Não reconhece o pedido';
+          case 3:
+            return 'Mercadoria não recebida';
+          case 4:
+            return 'Recebida com avaria';
+          case 5:
+            return 'Devolvida';
+          case 6:
+            return 'Recebida com devolução parcial';
+          case 7:
+            return 'Recebida e confirmada';
+          default: 'Status desconhecido';
+            break;
+        }
+    },
+
     }
 };
 
