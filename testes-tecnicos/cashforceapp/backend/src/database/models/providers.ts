@@ -1,34 +1,38 @@
 import db from '.';
 import { Model, INTEGER, STRING, DATE } from 'sequelize';
+import Cnpj from './cnpjs';
 
-class Buyer extends Model {
+class Provider extends Model {
   id!: number;
   name!: string;
-  tradingName!: string;
+  tradingName!: number;
+  cashForceTax!: string;
   responsibleName!: string;
   responsibleEmail!: string;
-  responsiblePosition!: string;
-  responsiblePhone!: number;
+  responsiblePosition!: Date;
+  responsiblePhone!: string;
   responsibleMobile!: number;
-  website!: string;
-  postalCode!: number;
-  address!: string;
+  postalCode!: string;
+  address!: number;
   number!: number;
-  complement!: string;
+  complement!: number;
   neighborhood!: string;
   city!: string;
   state!: string;
+  bank!: string;
+  bankAgency!: string;
+  account!: number;
+  documents!: string;
   phoneNumber!: number;
   situation!: string;
-  situationDate!: Date;
+  situationDate!: string;
   createdAt!: Date;
   updatedAt!: Date;
   cnpjId!: number;
-  confirm!: string;
   email!: string;
 };
 
-Buyer.init({
+Provider.init({
   id: {
     type: INTEGER,
     allowNull: false,
@@ -40,7 +44,11 @@ Buyer.init({
     allowNull: false,
   },
   tradingName:{
-    type: STRING,
+    type: INTEGER,
+    allowNull: false,
+  },
+  cashForceTax:{
+    type: INTEGER,
     allowNull: false,
   },
   responsibleName:{
@@ -52,15 +60,15 @@ Buyer.init({
     allowNull: false,
   },
   responsiblePosition:{
-    type: STRING,
+    type: DATE,
     allowNull: false,
   },
   responsiblePhone:{
-    type: INTEGER,
+    type: STRING,
     allowNull: false,
   },
   responsibleMobile:{
-    type: INTEGER,
+    type: STRING,
     allowNull: false,
   },
   website:{
@@ -84,7 +92,7 @@ Buyer.init({
     allowNull: false,
   },
   neighborhood:{
-    type: STRING,
+    type: INTEGER,
     allowNull: false,
   },
   city:{
@@ -92,20 +100,36 @@ Buyer.init({
     allowNull: false,
   },
   state:{
-    type: STRING,
-    allowNull: false,
+    type: INTEGER,
+    allowNull: true,
   },
-  phoneNumber:{
+  bank:{
+    type: STRING,
+    allowNull: true,
+  },
+  bankAgency: {
     type: INTEGER,
     allowNull: false,
   },
-  situation:{
-    type: STRING,
+  account: {
+    type: INTEGER,
     allowNull: false,
   },
-  situationDate:{
+  documents: {
+    type: INTEGER,
+    allowNull: false,
+  },
+  phoneNumber: {
+    type: INTEGER,
+    allowNull: false,
+  },
+  situation: {
+    type: INTEGER,
+    allowNull: false,
+  },
+  situationDate: {
     type: DATE,
-    allowNull: true,
+    allowNull: false,
   },
   createdAt:{
     type: DATE,
@@ -116,11 +140,7 @@ Buyer.init({
     allowNull: false,
   },
   cnpjId:{
-    type: STRING,
-    allowNull: true,
-  },
-  confirm:{
-    type: STRING,
+    type: INTEGER,
     allowNull: true,
   },
   email:{
@@ -129,10 +149,10 @@ Buyer.init({
   },
 }, {
   sequelize: db,
-  modelName: 'buyers',
+  modelName: 'providers',
   timestamps: true,
 });
 
-// Order.belongsTo(Cnpj, { foreignKey: 'cnpjId', as: 'cnpj' });
+Provider.belongsTo(Cnpj, { foreignKey: 'cnpjId', as: 'cnpj' });
 
-export default Buyer;
+export default Provider;

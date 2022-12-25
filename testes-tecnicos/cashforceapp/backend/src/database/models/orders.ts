@@ -1,5 +1,9 @@
 import db from '.';
 import { Model, INTEGER, STRING, DATE } from 'sequelize';
+import User from './users';
+import Cnpj from './cnpjs';
+import Buyer from './buyers';
+import Provider from './providers';
 
 class Order extends Model {
   id!: number;
@@ -127,10 +131,10 @@ Order.init({
   timestamps: true,
 });
 
-// Order.belongsTo(User, { foreignKey: 'userId', as: 'user' });
-// Order.belongsTo(Cnpj, { foreignKey: 'cnpjId', as: 'cnpj' });
-// Order.belongsTo(Buyer, { foreignKey: 'buyerId', as: 'buyer' });
-// Order.belongsTo(Provider, { foreignKey: 'providerId', as: 'provider' });
+Order.belongsTo(User, { foreignKey: 'userId', as: 'user' });
+Order.belongsTo(Cnpj, { foreignKey: 'cnpjId', as: 'cnpj' });
+Order.belongsTo(Buyer, { foreignKey: 'buyerId', as: 'sacados' });
+Order.belongsTo(Provider, { foreignKey: 'providerId', as: 'cedentes' });
 
 
 export default Order;
