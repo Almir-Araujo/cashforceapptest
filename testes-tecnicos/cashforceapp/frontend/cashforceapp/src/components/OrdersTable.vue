@@ -15,11 +15,11 @@
       </thead>
       <tbody>
         <tr v-for="(order) in orders" :key="order.orderNumber">
-          <td>{{ order.orderNumber }}</td>
-          <td>{{ order.buyerId }}</td>
-          <td>{{ order.providerId }}</td>
-          <td>{{ order.createdAt }}</td>
-          <td>{{ order.value }}</td>
+          <td>{{ order.nNf }}</td>
+          <td>{{ order.sacados.name }}</td>
+          <td>{{ order.cedentes.name }}</td>
+          <td>{{ moment(order.createdAt) }}</td>
+          <td>{{ `R$ ${order.value}` }}</td>
           <td>{{ order.orderStatusBuyer }}</td>
         </tr>
       </tbody>
@@ -29,6 +29,8 @@
 
 <script>
 import api from '../services/api';
+import moment from 'moment';
+
   export default {
     name: "OrdersTable",
     data() {
@@ -41,8 +43,15 @@ import api from '../services/api';
         this.orders = response.data.orders;
         console.log(response.data.orders)
       })
+    },
+
+    methods: {
+      moment(date) {
+        return moment(date).format('DD/MM/YYYY')
+      }
     }
-  }
+};
+
 </script>
 
 <style scoped>
