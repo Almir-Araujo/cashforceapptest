@@ -16,7 +16,7 @@
         </thead>
         <tbody>
           <tr v-for="(order) in orders" :key="order.orderNumber">
-            <td><p class="row-text">{{ order.nNf }}</p></td>
+            <td>{{ order.nNf }}</td>
             <td>{{ order.sacados.name }}</td>
             <td>{{ order.cedentes.name }}</td>
             <td>{{ moment(order.createdAt) }}</td>
@@ -89,6 +89,6 @@ import moment from 'moment';
     width: 70%;
 		float: right;
 		text-align: center;
-  }
+  };
 
 </style>

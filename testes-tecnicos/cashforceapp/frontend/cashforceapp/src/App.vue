@@ -6,7 +6,6 @@ import SiderFinanciador from './components/SiderFinanciador.vue';
 
 <template>
   <header class="blank-header">
-    <img alt="Logo Cash Force" src="../cashforceLogo.svg">
   </header>
 
   <main>
@@ -18,10 +17,13 @@ import SiderFinanciador from './components/SiderFinanciador.vue';
 <style scoped>
 
   .blank-header {
-    width: 1272px;
+    width: 80%;
+    float: right;
     height: 64px;
-    padding: 16px 46px 16px 46px;
-    gap: 10px;
+    margin: 0px;
+    padding: 0px;
+    /* padding: 16px 46px 16px 46px; */
+    /* gap: 10px; */
   };
 
 </style>

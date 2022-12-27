@@ -1,18 +1,26 @@
 <template>
   <div class="sider-financiador">
-      <button image="./icons/IconCommunity.vue" class="sider-btn">Notas Fiscais</button>
+    <img class="logo-sider" alt="Logo Cash Force" src="../../public/cashforceLogo.svg">
+      <button class="sider-btn">
+        <img src="/Vector.png">
+        Notas Fiscais
+      </button>
   </div>
 </template>
 
 <style scoped>
 
-  .sider-financiador {
+  /* .sider-financiador {
     position: absolute;
     width: 30%;
     height: 900px;
     left: 0px;
     top: 0px;
     background-color: #FBFDFE;
+  }
+
+  .logo-sider, .icon-sider {
+    padding: 30px;
   }
 
   .sider-btn {
@@ -25,14 +33,14 @@
     align-items: center;
     color: #00AD8C;
     background-color: #FBFDFE;
-    padding-left: 50px;
+    padding-left: 40px;
     border-left: 5px solid #00AD8C;
-    border-radius: 6px;
+    border-radius: 4px;
     border-top: none;
     border-bottom: none;
     border-right: none;
     height: 64px;
-    margin-right: 0px;
-  }
+    gap: 10px;
+  } */
 
 </style>
