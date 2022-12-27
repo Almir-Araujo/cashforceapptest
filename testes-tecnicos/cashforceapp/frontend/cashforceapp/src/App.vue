@@ -1,45 +1,27 @@
 <script setup>
-import TheHeader from './components/TheHeader.vue'
-import OrdersTable from './components/OrdersTable.vue'
+import NotasFiscaisTable from './components/NotasFiscaisTable.vue';
+import SiderFinanciador from './components/SiderFinanciador.vue';
+
 </script>
 
 <template>
-  <header>
-    <div>
-      <TheHeader />
-    </div>
+  <header class="blank-header">
+    <img alt="Logo Cash Force" src="../cashforceLogo.svg">
   </header>
 
   <main>
-    <OrdersTable />
+    <SiderFinanciador/>
+    <NotasFiscaisTable/>
   </main>
 </template>
 
 <style scoped>
-/* header {
-  line-height: 1.5;
-} */
 
-/* .logo {
-  display: block;
-  margin: 0 auto 2rem;
-} */
+  .blank-header {
+    width: 1272px;
+    height: 64px;
+    padding: 16px 46px 16px 46px;
+    gap: 10px;
+  };
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  /* .logo {
-    margin: 0 2rem 0 0;
-  } */
-
-  /* header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  } */
-}
 </style>
