@@ -14,7 +14,7 @@ class Order extends Model {
   orderOriginalName!: string;
   emissionDate!: Date;
   pdfFile!: string;
-  emitedTo!: number;
+  emitedTo!: string;
   nNf!: number;
   CTE!: string;
   value!: number;
@@ -69,7 +69,7 @@ Order.init({
     type: STRING,
     allowNull: false,
   },
-  Nnf:{
+  nNf:{
     type: INTEGER,
     allowNull: false,
   },

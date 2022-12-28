@@ -17,7 +17,7 @@ const errorMiddleware: ErrorRequestHandler = (err, _req, res, next) => {
     default:
       console.error(err);
       res.sendStatus(500); 
-  }
+  };
 
   next();
 };

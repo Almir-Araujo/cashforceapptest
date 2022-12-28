@@ -15,7 +15,7 @@ class Provider extends Model {
   postalCode!: string;
   address!: number;
   number!: number;
-  complement!: number;
+  complement!: string;
   neighborhood!: string;
   city!: string;
   state!: string;

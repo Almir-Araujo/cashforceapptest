@@ -116,7 +116,7 @@ Buyer.init({
     allowNull: false,
   },
   cnpjId:{
-    type: STRING,
+    type: INTEGER,
     allowNull: true,
   },
   confirm:{
