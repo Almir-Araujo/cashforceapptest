@@ -3,7 +3,7 @@
       <SiderFinanciador/>
       <div class="table-container">
           <h2><img class="hands-icon-table" src="/Vector-gray.png">Notas Fiscais</h2>
-        <p>Visualize as notas fiscais que você tem</p>
+        <p>Visualize as notas fiscais que você tem.</p>
         <table>
           <thead>
             <tr>
@@ -18,14 +18,14 @@
           </thead>
           <tbody>
             <tr class="table-row" v-for="(order) in orders" :key="order.orderNumber">
-                <td class="table-inside-text">{{ order.nNf }}</td>
+                <td id="first-td" class="table-inside-text">{{ order.nNf }}</td>
                 <td class="table-inside-text">{{ order.sacados.name }}</td>
                 <td class="table-inside-text">{{ order.cedentes.name }}</td>
                 <td class="table-inside-text">{{ moment(order.createdAt) }}</td>
                 <td class="table-value-and-status">{{ Number(order.value)
                 .toLocaleString('pt-br', { style: 'currency', currency: 'BRL' }) }}</td>
                 <td class="table-value-and-status">{{ checkStatus(Number(order.orderStatusBuyer)).toLocaleUpperCase() }}</td>
-                <td>
+                <td id="last-td">
                   <button class="btn-cedente">Dados do cedente</button>
                 </td>
               </tr>
@@ -87,24 +87,56 @@ import SiderFinanciador from './SiderFinanciador.vue';
 
 <style scoped>
 
-.main-container {
-  display: flex;
+h2 {
+  size: 24px;
+  font-family: 'DM Sans';
+  font-weight: 700;
+}
+
+p {
+  font-family: 'DM Sans';
+  color: #727D94;
+  font-size: 14px;
 }
 
 table {
-  width: 100%;
-  padding-left: 100px;
+  width: 1177px;
+  border-collapse: separate;
+  border-spacing: 0 20px;
+  align-items: center;
 }
 
 th {
+  height: 10px;
+  color: #A1A8B8;
   font-family: 'DM Sans';
   font-style: normal;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 16px;
-  align-items: center;
-  color: #A1A8B8;
-  border-radius: 4px;
+}
+
+td {
+  border-top: 1px solid #DFE2EB;
+  border-bottom: 1px solid #DFE2EB;
+}
+
+#first-td {
+  border-left: 1px solid #DFE2EB;
+  border-radius: 6px;
+  padding: 5px;
+}
+
+#last-td {
+  border-right: 1px solid #DFE2EB;
+  border-radius: 6px
+}
+
+.main-container {
+  display: flex;
+  height: 100%;
+  box-shadow: 0px 10px 30px rgba(225, 229, 236, 0.5);
+  width: 1272px;
 }
 
 .hands-icon-table {
@@ -115,7 +147,7 @@ th {
   font-family: 'DM Sans';
   font-style: normal;
   font-weight: 500;
-  line-height: 18px;
+  line-height: 25px;
   color: #4D5566;
 }
 
@@ -124,7 +156,7 @@ th {
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
-  line-height: 18px;
+  line-height: 50px;
   color: #00AD8C;
 }
 
@@ -144,25 +176,11 @@ th {
   color: #727D94;
 }
 
-/* header {
-  display: flex;
-  align-items: flex-start;
-  padding: 16px 46px;
-  gap: 10px;
-  position: absolute;
-  width: 80%;
-  height: 64px;
-  left: 0px;
-  top: 0px;
-  background: #FFFFFF;
-  border-radius: 12px 0px 0px 0px;
-  border-bottom: 100px solid #DFE2EB;
-} */
-
 .table-container {
   margin-top: 100px;
   width: 100%;
-  margin-left: 40px;
+  margin-left: 250px;
+  position: fixed;
 }
 
 </style>
