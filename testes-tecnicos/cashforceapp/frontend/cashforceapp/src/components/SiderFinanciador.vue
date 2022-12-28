@@ -1,8 +1,8 @@
 <template>
-  <div class="sider-financiador">
-    <img class="logo-sider" alt="Logo Cash Force" src="../../public/cashforceLogo.svg">
+  <div class="sider-container">
+    <img class="sider-logo" alt="Logo Cash Force" src="/cashforceLogo.svg">
       <button class="sider-btn">
-        <img src="/Vector.png">
+        <img class="hands-icon" src="/Vector.png">
         Notas Fiscais
       </button>
   </div>
@@ -10,37 +10,37 @@
 
 <style scoped>
 
-  /* .sider-financiador {
-    position: absolute;
-    width: 30%;
-    height: 900px;
-    left: 0px;
-    top: 0px;
-    background-color: #FBFDFE;
+.sider-container {
+  flex-direction: column;
+  height: 100%;
+  background-color: #FBFDFE;
+}
+
+  .sider-logo {
+    padding: 6px 8px 6px 16px;
+    display: block;
+    margin: 20px;
   }
 
-  .logo-sider, .icon-sider {
-    padding: 30px;
+  .hands-icon {
+    padding-left: 20px;
   }
 
   .sider-btn {
-    font-family: 'DM Sans', sans-serif;;
+    font-family: 'DM Sans', sans-serif;
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
-    line-height: 18px;
-    display: flex;
-    align-items: center;
-    color: #00AD8C;
+    color:#00AD8C;
+    padding: 6px 8px 6px 16px;
+    display: block;
     background-color: #FBFDFE;
-    padding-left: 40px;
-    border-left: 5px solid #00AD8C;
-    border-radius: 4px;
-    border-top: none;
+    border-left: 6px solid #00AD8C;
     border-bottom: none;
+    border-top: none;
     border-right: none;
-    height: 64px;
-    gap: 10px;
-  } */
+    border-radius: 5px;
+    height: 80px;
+  }
 
 </style>
